@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace module_12_rest_api.Models
 {
-    public class Product
+    public class RelatedProduct
     {
         [Key]
         [Required]
@@ -25,19 +25,5 @@ namespace module_12_rest_api.Models
         [Required]
         [Display(Name = "department")]
         public string Department { get; set; }
-
-        [Required]
-        [Display(Name = "timestamp")]
-        public DateTime Timestamp { get; set; }
-
-        [Required]
-        [Display(Name = "relatedProducts")]
-        public virtual List<RelatedProduct> RelatedProducts { get; set; }
-
-        [Required]
-        [Display(Name = "relatedReviews")]
-        public virtual List<Review> RelatedReviews { get; set; }
-
-
     }
 }
