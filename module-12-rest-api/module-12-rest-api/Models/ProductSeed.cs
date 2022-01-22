@@ -92,6 +92,7 @@ namespace module_12_rest_api.Models
 
                 }
 
+                DateTime timestamp = Convert.ToDateTime(new TimeSpan(0, 0, 0, rnd.Next(86400)));
                 return new Product
                 {
                     ProductNumber =
@@ -101,7 +102,7 @@ namespace module_12_rest_api.Models
                     Department = department,
                     RelatedProducts = relatedProducts,
                     RelatedReviews = reviews,
-                    Timestamp = DateTime.Now
+                    Timestamp = timestamp
                 };
             }));
 

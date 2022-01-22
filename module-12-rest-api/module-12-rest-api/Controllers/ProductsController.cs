@@ -210,6 +210,34 @@ namespace module_12_rest_api.Controllers
             }
         }
 
+        [HttpDelete]
+        //[Route("{dateModified}/deleteold")]
+        [Route("DeleteOldProducts")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<Product> DeleteProducts([FromBody] DateTime dateTime)
+        {
+            try
+            {
+                var productList = _context.Products as IQueryable<Product>;
+                foreach (Product product in productList)
+                {
+                    if (dateTime > product.Timestamp)
+                    {
+                        _context.Products.Remove(product);
+                    }
+                }
+                _context.SaveChanges();
+
+                return Ok(_context.Products);
+            }
+            catch (Exception e)
+            {
+                // Typically an error log is produced here
+                return ValidationProblem(e.Message);
+            }
+        }
+
 
     }
 }
