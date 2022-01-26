@@ -29,8 +29,8 @@ namespace module_12_rest_api
         {
 
             services.AddControllers();
-
             services.AddDbContext<ProductContext>(opt => opt.UseLazyLoadingProxies().UseInMemoryDatabase("Products"));
+            services.AddDbContext<SellerDao>(opt => opt.UseLazyLoadingProxies().UseInMemoryDatabase("Sellers"));
             services.AddApiVersioning(opt => opt.ReportApiVersions = true);
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
             {

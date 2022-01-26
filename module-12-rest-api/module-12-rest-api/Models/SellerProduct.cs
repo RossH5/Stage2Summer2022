@@ -6,23 +6,20 @@ using System.Threading.Tasks;
 
 namespace module_12_rest_api.Models
 {
-    public class Seller
+    public class SellerProduct
     {
         [Key]
         [Required]
-        [Display(Name = "Seller ID")]
-        public string SellerID { get; set; }
+        [Display(Name = "productNumber")]
+        public string ProductNumber { get; set; }
 
         [Required]
-        [Display(Name = "Seller Name")]
+        [Display(Name = "Product")]
         public string Name { get; set; }
 
+
         [Required]
-        [Display(Name = "Inventory")]
-        public virtual List<SellerProduct> Inventory { get; set; }
-
-
-
-        
+        [Display(Name = "Stock")]
+        public int Stock { get; set; }
     }
 }
