@@ -19,38 +19,38 @@ namespace module_12_rest_api.Models
                 "Granite", "Rubber" };
             var names = new[] { "Chair", "Car", "Computer", "Pants", "Shoes" };
 
-            var sellernames =  new[] { "Walmart", "Target", "Lowes",
+            var sellernames =  new[] { "Walmart", "Target", "Lowe's",
                 "Home Depot", "Sam's Club" };
 
-            context.Sellers.AddRange(50.Times(x =>
+            context.Sellers.AddRange(200.Times(x =>
             {
-                var name = $"{sellernames[rnd.Next(0, 5)]} {x,-3:000}";
-                var sellerId = $"{x,-3:000}";
+                var name = $"{sellernames[rnd.Next(0, 5)]}";
+                var sellerId = $"{name.First()}{name.Last()}{x + 500, -3:000}".ToUpper();
                 List<SellerProduct> inventory = new List<SellerProduct>();
 
-                var itemsSold = rnd.Next(0, 10);
+                var itemsSold = rnd.Next(0, 3);
                 for (int i = 0; i < itemsSold; i++)
                 {
                     var radjective = adjectives[rnd.Next(0, 5)];
                     var rmaterial = materials[rnd.Next(0, 5)];
                     var rname = names[rnd.Next(0, 5)];
-                    var productId = $"{x,-3:000}";
+                    var productId = $"{rnd.Next(100, 999)}{rnd.Next(10, 99)}";
 
                     inventory.Add(new SellerProduct
                     {
                         ProductNumber =
-                        $"{name} {productId}",
-                        Name =
+                        $"{productId}{radjective.First()}{rmaterial.First()}{rname.First()}".ToUpper(),
+                        ProductName =
                             $"{radjective} {rmaterial} {rname}",
-                        Stock = 1
+                        InStock = rnd.Next(1, 15)
                     }) ;
                 }
 
                 return new Seller
                 {
                     SellerID =
-                        $"{name.First()}{name.First()}{sellerId}",
-                    Name = $"{name}",
+                        sellerId,
+                    Name = name,
                     Inventory = inventory
                 };
             }));

@@ -95,7 +95,7 @@ namespace module_12_rest_api.Controllers
                 _context.Products.Add(newProduct);
                 _context.SaveChanges();
 
-                return new CreatedResult($"/products/{product.ProductNumber.ToLower()}", product);
+                return new CreatedResult($"/products/{newProduct.ProductNumber.ToLower()}", newProduct);
             }
             catch (Exception e)
             {

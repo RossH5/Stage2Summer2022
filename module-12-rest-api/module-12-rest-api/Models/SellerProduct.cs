@@ -14,12 +14,12 @@ namespace module_12_rest_api.Models
         public string ProductNumber { get; set; }
 
         [Required]
-        [Display(Name = "Product")]
-        public string Name { get; set; }
+        [Display(Name = "productName")]
+        public string ProductName { get; set; }
 
 
         [Required]
-        [Display(Name = "Stock")]
-        public int Stock { get; set; }
+        [Display(Name = "inStock")]
+        public int InStock { get; set; }
     }
 }

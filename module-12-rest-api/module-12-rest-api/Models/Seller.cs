@@ -10,15 +10,15 @@ namespace module_12_rest_api.Models
     {
         [Key]
         [Required]
-        [Display(Name = "Seller ID")]
+        [Display(Name = "sellerId")]
         public string SellerID { get; set; }
 
         [Required]
-        [Display(Name = "Seller Name")]
+        [Display(Name = "sellerName")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Inventory")]
+        [Display(Name = "inventory")]
         public virtual List<SellerProduct> Inventory { get; set; }
 
 
